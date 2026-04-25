@@ -21,7 +21,10 @@ function dotGo(i) {
     d[idx].classList.add('active');
 }
 
-setInterval(function () { slide(1); }, 5000);
+// Auto slide every 5 seconds
+setInterval(function () {
+    slide(1);
+}, 5000);
 
 // ========== PAGE NAVIGATION ==========
 function go(id) {
@@ -30,6 +33,7 @@ function go(id) {
     for (var i = 0; i < pages.length; i++) {
         pages[i].classList.remove('active');
     }
+
     // Show target page
     document.getElementById(id).classList.add('active');
 
