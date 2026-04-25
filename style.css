@@ -11,12 +11,7 @@
     --border: #d5d8dc;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -27,35 +22,31 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* ========== HEADER ========== */
 .header {
     background: var(--white);
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     border-bottom: 3px solid var(--blue);
 }
 
 .header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    direction: ltr;
+    gap: 2rem;
 }
 
 .logo img {
-    height: 55px;
+    height: 70px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s;
+    order: 2;
 }
 
 .logo:hover img { transform: scale(1.05); }
@@ -68,6 +59,8 @@ body {
     gap: 5px;
     cursor: pointer;
     padding: 8px;
+    order: 3;
+    margin-right: auto;
 }
 
 .menu-btn span {
@@ -79,11 +72,13 @@ body {
     transition: 0.3s;
 }
 
+nav { order: 1; flex: 1; }
+
 .menu {
     display: flex;
     gap: 0.3rem;
     list-style: none;
-    direction: rtl;
+    justify-content: flex-start;
 }
 
 .menu a {
@@ -96,6 +91,7 @@ body {
     font-size: 0.95rem;
     transition: 0.3s;
     position: relative;
+    white-space: nowrap;
 }
 
 .menu a::after {
@@ -125,36 +121,39 @@ body {
 
 /* ========== HERO ========== */
 .hero {
-    padding: 3.5rem 0 2.5rem;
+    padding: 4rem 0 3rem;
     text-align: center;
-    background: var(--white);
+    background: linear-gradient(180deg, var(--white) 0%, var(--ice) 100%);
 }
 
 .hero-logo {
-    height: 160px;
+    height: 200px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.12));
+    transition: transform 0.3s;
 }
+
+.hero-logo:hover { transform: scale(1.03); }
 
 .hero-sub {
     font-family: 'Tajawal', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.9rem);
+    font-size: clamp(1.3rem, 2.8vw, 2.2rem);
     color: var(--dblue);
-    margin-top: 1.2rem;
-    font-weight: 600;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 /* ========== CAROUSEL ========== */
 .carousel {
     position: relative;
     background: var(--white);
+    border-top: 2px solid var(--lblue);
+    border-bottom: 2px solid var(--lblue);
 }
 
-.car-slides {
-    position: relative;
-    overflow: hidden;
-}
+.car-slides { position: relative; overflow: hidden; }
 
 .car-slide {
     display: none;
@@ -201,15 +200,8 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
-.car-btn svg {
-    width: 26px;
-    height: 26px;
-    color: var(--blue);
-    transition: 0.3s;
-}
-
+.car-btn svg { width: 26px; height: 26px; color: var(--blue); transition: 0.3s; }
 .car-btn:hover svg { color: var(--white); }
-
 .car-prev { left: 1.5rem; }
 .car-next { right: 1.5rem; }
 
@@ -249,32 +241,32 @@ body {
 /* ========== QURAN ========== */
 .quran {
     background: var(--ice);
-    padding: 3rem 0;
+    padding: 3.5rem 0;
 }
 
 .quran-box {
     text-align: center;
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 0 auto;
-    padding: 2rem 2.5rem;
+    padding: 2.5rem 3rem;
     background: var(--white);
-    border-radius: 14px;
+    border-radius: 16px;
     border: 2px solid var(--blue);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
 }
 
 .quran-text {
     font-family: 'Amiri', serif;
-    font-size: clamp(1.1rem, 2.2vw, 1.55rem);
-    line-height: 2.4;
+    font-size: clamp(1.15rem, 2.3vw, 1.6rem);
+    line-height: 2.5;
     color: var(--dblue);
     letter-spacing: 0.5px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .quran-ref {
     font-family: 'Cairo', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--blue);
     font-weight: 600;
 }
@@ -282,7 +274,7 @@ body {
 /* ========== PAGE HEADER ========== */
 .page-head {
     background: var(--dblue);
-    padding: 4rem 0;
+    padding: 4.5rem 0;
     text-align: center;
     color: var(--white);
     border-bottom: 3px solid var(--blue);
@@ -303,34 +295,35 @@ body {
 }
 
 /* ========== SECTIONS ========== */
-.section {
-    padding: 5rem 0;
-}
+.section { padding: 5rem 0; }
 
 .empty {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4.5rem 2rem;
     background: var(--ice);
-    border-radius: 14px;
+    border-radius: 16px;
     border: 2px dashed var(--border);
+    transition: all 0.3s;
+}
+
+.empty:hover {
+    border-color: var(--blue);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .empty-ic {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     background: var(--blue);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-.empty-ic svg {
-    width: 40px;
-    height: 40px;
-    color: var(--white);
-}
+.empty-ic svg { width: 42px; height: 42px; color: var(--white); }
 
 .empty p {
     font-family: 'Cairo', sans-serif;
@@ -343,27 +336,27 @@ body {
 .footer {
     background: var(--navy);
     color: var(--white);
-    padding: 3.5rem 0 2rem;
+    padding: 4rem 0 2.5rem;
     text-align: center;
     border-top: 4px solid var(--blue);
 }
 
 .footer h3 {
     font-family: 'Amiri', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .footer p {
     font-family: 'Tajawal', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: var(--lblue);
     margin-bottom: 1.5rem;
 }
 
 .fline {
-    width: 90px;
+    width: 100px;
     height: 3px;
     background: var(--blue);
     margin: 1.5rem auto;
@@ -373,20 +366,24 @@ body {
 .footer span {
     display: block;
     color: var(--lblue);
-    font-size: 0.95rem;
+    font-size: 1rem;
     opacity: 0.85;
 }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
-    .menu a {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.88rem;
-    }
+    .menu a { padding: 0.5rem 0.8rem; font-size: 0.88rem; }
+    .logo img { height: 60px; }
 }
 
 @media (max-width: 768px) {
     .menu-btn { display: flex; }
+
+    .header .container { position: relative; }
+
+    .logo img { height: 55px; order: 1; }
+
+    .menu-btn { order: 3; margin-right: auto; }
 
     nav {
         position: absolute;
@@ -394,6 +391,7 @@ body {
         left: 0;
         right: 0;
         z-index: 100;
+        order: unset;
     }
 
     .menu {
@@ -407,7 +405,7 @@ body {
 
     .menu.open { display: flex; }
 
-    .hero-logo { height: 120px; }
+    .hero-logo { height: 140px; }
     .car-slide img { height: 300px; }
     .section { padding: 3.5rem 0; }
     .car-btn { width: 42px; height: 42px; }
@@ -417,11 +415,13 @@ body {
 }
 
 @media (max-width: 480px) {
-    .logo img { height: 42px; }
-    .hero-logo { height: 100px; }
+    .logo img { height: 48px; }
+    .hero-logo { height: 110px; }
     .car-slide img { height: 220px; }
     .quran-text { font-size: 1rem; line-height: 2; }
     .page-head h1 { font-size: 1.8rem; }
+    .page-head { padding: 3rem 0; }
     .empty { padding: 3rem 1.5rem; }
     .container { padding: 0 1rem; }
+    .quran-box { padding: 1.5rem 1.5rem; }
 }
